@@ -10,6 +10,6 @@ const contacts = require('./routes/Contacts')
 app.use(cors())
 app.use(express.json())
 app.use('/', index)
-//app.use('/contacts', contacts)
+app.use('/contacts', contacts)
 
 module.exports = app
