@@ -18,6 +18,21 @@ const getById = (req, res) => {
   const id = req.params.id
   contactsCollection.findById(id, (error, contact) => {
     if(error) {
+      return res.status(500).send(error)
+    } else if(contact) {
+      return res.status(200).send(contact)
+    } else {
+      return res.status(404).send('Contact not found.')
+    }
+  })
+}
+
+const getByName = (req, res) => {
+  const name = req.params.name
+  contactsCollection.find({name: name}, (error, contact) => {
+    if(error) {
+      return res.status(500).send(error)
+    } else if(contact == '') {
       return res.status(404).send('Contact not found.')
     } else {
       return res.status(200).send(contact)
@@ -74,6 +89,7 @@ const deleteContact = (req, res) => {
 module.exports = {
   getAll,
   getById,
+  getByName,
   addContact,
   //updateContact,
   deleteContact
