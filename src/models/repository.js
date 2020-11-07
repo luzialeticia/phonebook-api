@@ -9,4 +9,4 @@ const connect = () => {
   connection.once('open', () => console.log('Database connected!'))
 }
 
-module.exports = connect
+module.exports = { connect }
