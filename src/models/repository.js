@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const DB_URL = 'mongodb://localhost:27017/Reprograma'
+const DB_URL = 'mongodb://localhost:27017/Contato-Reprograma'
 
 const connect = () => {
   mongoose.connect(DB_URL, { userNewUrlParser: true })

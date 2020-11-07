@@ -1,7 +1,7 @@
 const model = require('../models/contactSchema')
 
 const getAll = (req, res) => {
-  model.find((error, contacts) => {
+  model.contactsCollection.find((error, contacts) => {
     if(error) {
       return res.status(500).send(error)
     } else {
