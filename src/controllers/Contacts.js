@@ -5,7 +5,10 @@ const getAll = (req, res) => {
     if(error) {
       return res.status(500).send(error)
     } else {
-      return res.status(200).send({titulo: "contacts"})
+      return res.status(200).send({
+        mensagem: "Contacts",
+        contacts
+      })
     }
   })
 }
