@@ -13,6 +13,17 @@ const getAll = (req, res) => {
   })
 }
 
+const getById = (req, res) => {
+  const id = req.params.id
+  model.contactsCollection.findById(id, (error, contact) => {
+    if(error) {
+      return res.status(404).send('Contact not found.')
+    } else {
+      return res.status(200).send(contact)
+    }
+  })
+}
+
 const addContact = (req, res) => {
   const contactBody = req.body
   const contact = new model.contactsCollection(contactBody) //model.contactsCollection(contactBody)
@@ -31,5 +42,6 @@ const addContact = (req, res) => {
 
 module.exports = {
   getAll,
+  getById,
   addContact
 }
