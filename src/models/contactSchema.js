@@ -21,5 +21,6 @@ const contactSchema = new Schema({
   },
   profilePhoto: {
     type: String,
+    required: false
   }
 })
