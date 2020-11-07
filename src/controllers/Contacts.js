@@ -15,7 +15,7 @@ const getAll = (req, res) => {
 
 const addContact = (req, res) => {
   const contactBody = req.body
-  const contact = new model.contactsCollection(contactBody)
+  const contact = new model.contactsCollection(contactBody) //model.contactsCollection(contactBody)
 
   contact.save((error) => {
     if(error) {
