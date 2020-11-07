@@ -3,9 +3,9 @@ const app = express()
 const cors = require('cors')
 const index = require('./routes/index')
 const contacts = require('./routes/Contacts')
-//const db = require('./models/repository')
+const db = require('./models/repository')
 
-//db.connect()
+db.connect()
 
 app.use(cors())
 app.use(express.json())
