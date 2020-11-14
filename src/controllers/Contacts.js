@@ -29,10 +29,11 @@ const getById = (req, res) => {
 
 const getByName = (req, res) => {
   const name = req.params.name
-  contactsCollection.find({name: name}, (error, contact) => {
+  const capitalizeName = name.charAt(0).toUpperCase() + name.slice(1)
+  contactsCollection.find({ name: capitalizeName }, (error, contact) => {
     if(error) {
       return res.status(500).send(error)
-    } else if(contact == '') {
+    } else if(contact == "") {
       return res.status(404).send('Contact not found.')
     } else {
       return res.status(200).send(contact)
