@@ -57,24 +57,23 @@ const addContact = (req, res) => {
   })
 }
 
-// const updateContact = (req, res) => {
-//   const id = req.params.id
-//   const contactBody = req.body
-//   const updatedContact = {new: true}
+const updateContact = (req, res) => {
+  const id = req.params.id
+  const contactBody = req.body
+  const updatedContact = { new: true }
 
-//   model.contactsCollection.findByIdAndUpdate(
-//     id,
-//     {$set:{contactBody}},
-//     updatedContact,
-//     (error, contact) => {
-//       if(error) {
-//         return res.status(404).send('Contact not found.')
-//       } else {
-//         return res.status(200).send(contact)
-//       }
-//     }
-//   )
-// }
+  contactsCollection.findByIdAndUpdate(id, contactBody, updatedContact,
+    (error, contact) => {
+      if(error) {
+        return res.status(500).send(error)
+      } else if(contact) {
+        return res.status(200).send(contact)
+      } else {
+        return res.status(404).send('Contact not found.')
+      }
+    }
+  )
+}
 
 const deleteContact = (req, res) => {
   const id = req.params.id
@@ -92,6 +91,6 @@ module.exports = {
   getById,
   getByName,
   addContact,
-  //updateContact,
+  updateContact,
   deleteContact
 }
