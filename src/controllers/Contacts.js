@@ -16,13 +16,14 @@ const getAll = (req, res) => {
 
 const getById = (req, res) => {
   const id = req.params.id
-  contactsCollection.findById(id, (error, contact) => {
+
+  contactsCollection.find({ _id: id }, (error, contact) => {
     if(error) {
       return res.status(500).send(error)
-    } else if(contact) {
-      return res.status(200).send(contact)
-    } else {
+    } else if(contact == "") {
       return res.status(404).send('Contact not found.')
+    } else {
+      return res.status(200).send(contact)
     }
   })
 }
@@ -30,6 +31,7 @@ const getById = (req, res) => {
 const getByName = (req, res) => {
   const name = req.params.name
   const capitalizeName = name.charAt(0).toUpperCase() + name.slice(1)
+
   contactsCollection.find({ name: capitalizeName }, (error, contact) => {
     if(error) {
       return res.status(500).send(error)
@@ -67,9 +69,36 @@ const updateContact = (req, res) => {
       if(error) {
         return res.status(500).send(error)
       } else if(contact) {
-        return res.status(200).send(contact)
+        return res.status(200).send({
+          message: 'Successful!',
+          contact
+        })
       } else {
         return res.status(404).send('Contact not found.')
+      }
+    }
+  )
+}
+
+const updateContactPhone = (req, res) => {
+  const id = req.params.id
+  const contactBody = req.body
+  const updatedContact = { new: true }
+
+  contactsCollection.findByIdAndUpdate(
+    id,
+    contactBody,
+    updatedContact,
+    (error, contact) => {
+      if(error) {
+        return res.status(500).send(error)
+      } else if(contact == "") {
+        return res.status(404).send('Contact not found.')
+      } else {
+        return res.status(200).send({
+          message: 'Successful!',
+          contact
+        })
       }
     }
   )
@@ -92,5 +121,6 @@ module.exports = {
   getByName,
   addContact,
   updateContact,
+  updateContactPhone,
   deleteContact
 }
