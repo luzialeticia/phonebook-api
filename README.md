@@ -76,10 +76,10 @@ Use o Postman ou Insomnia para realizar as requisições ou utilize no seu front
 ```bash
 \--📂 NOME-DO-SEU-SERVIDOR
 		 |   .gitignore
-		 |   package-lock.json
+		 |   README.md
+		 |   yarn-lock.json
 		 |   package.json
-	   |   **server.js**
-			\--📂 node_modules
+		 |   **server.js**
 			\--📂src
 			    |   **app.js**
 			    |
@@ -87,11 +87,13 @@ Use o Postman ou Insomnia para realizar as requisições ou utilize no seu front
 			    |       **Contacts.js**
 			    |
 			    📂---models
-			    |       **contactSchema.js
-					|       repository.js**
+					|   **contactSchema.js
+					|   repository.js**
 			    |
 			    📂---routes
 			            **Contacts.js
 									index.js**
 ```
 ### Diagrama
+
+![assets/diagrama-mvc.png](assets/diagrama-mvc.png)
