@@ -49,9 +49,9 @@ Use o Postman ou Insomnia para realizar as requisições ou utilize no seu front
 [
 	{
 		"_id": "5fa6128cb3afb1104017dd1a",
-		"nome": "Ana lu",
-		"celular": "912345678",
-		"dataNascimento": "1996-10-10T02:00:00.000Z",
+		"nome": "Letícia Luzia",
+		"celular": "980808080",
+		"dataNascimento": "1990-01-27T02:00:00.000Z",
 		"fotoPerfil": "https://linkdafoto.com.br"
 	}
 ]
