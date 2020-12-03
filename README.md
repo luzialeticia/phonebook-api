@@ -96,4 +96,4 @@ Use o Postman ou Insomnia para realizar as requisições ou utilize no seu front
 ```
 ### Diagrama
 
-![assets/diagrama-mvc.png](assets/diagrama-mvc.png)
+![https://github.com/luzialeticia/phonebook-api/blob/master/assets/diagrama-mvc.png](https://github.com/luzialeticia/phonebook-api/blob/master/assets/diagrama-mvc.png)
